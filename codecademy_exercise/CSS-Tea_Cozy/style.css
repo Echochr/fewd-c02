@@ -1,0 +1,150 @@
+html, body {
+    font-family: 'Helvetica';
+    font-size: 22px;
+    color: seashell;
+    background-color: black;
+    opacity: 0.9;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 69px;
+    border-bottom: 1px solid seashell;
+  }
+  
+  .brand-logo {
+    margin-left: 10px;
+  }
+  
+  .brand-logo img {
+    height: 50px;
+  }
+  
+  .nav-links {
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .nav-item {
+    text-decoration: underline;
+  }
+  
+  main {
+    background-image: url('https://content.codecademy.com/courses/freelance-1/unit-4/img-mission-background.jpg');
+    background-size: cover;
+    width: 1200px;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
+  main div {
+    width: 100%;
+    background-color: black;
+  }
+  
+  main div h2 {
+    margin-top: 10px;
+  }
+  
+  main div h4 {
+    margin-bottom: 10px;
+  }
+
+  section.tea-of-the-month {
+    width: 1000px;
+    margin: 80px auto 0;
+  }
+
+  .tea-of-the-month .gallery {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
+
+  .gallery-second-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 15px auto 0;
+  }
+
+  .gallery-card img {
+      width: 300px;
+      height: 200px;
+  }
+
+  .gallery-card p {
+      margin: 10px auto;
+  }
+
+  .ave-tea {
+      margin-right: 50px;
+  }
+
+  section.locations {
+      margin: 80px auto 0;
+      height: 550px;
+      width: 1200px;
+      background-image: url('https://content.codecademy.com/courses/freelance-1/unit-4/img-locations-background.jpg');
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-content: center;
+  }
+
+.locations > div {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.locations h2 {
+    width: 100%;
+    position: relative;
+    bottom: 30px;
+}
+
+  .locations-card {
+      position: relative;
+      bottom: 40px;
+      background-color: black;
+      color: white;
+      width: 300px;
+      margin-right: 40px;
+}
+
+  .locations-card:last-child {
+      margin-right: 0;
+  }
+
+  .locations-card h3 {
+    margin: 25px auto 10px;
+
+  }
+
+  .locations-card p:last-child {
+      margin-bottom: 20px;
+  }
+
+  section.contacts {
+      height: 200px;
+  }
+
+  .contacts h2 {
+      margin-top: 15px;
+  }
+
+  footer {
+      display: flex;
+      justify-content: flex-start;
+      margin-left: 20px;
+      font-size: 16px;
+      margin-bottom: 30px;
+      font-weight: 700;
+  }
