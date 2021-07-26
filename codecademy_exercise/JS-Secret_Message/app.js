@@ -7,5 +7,5 @@ secretMessage.push('Program')
 secretMessage[7] = 'right'
 secretMessage.shift()
 secretMessage.unshift('Programming')
-secretMessage.slice(6,11,'know,')
+secretMessage.splice(6,5,'know,')
 console.log(secretMessage.join(' '))
