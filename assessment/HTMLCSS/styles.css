@@ -1,0 +1,410 @@
+/* Colors
+white: #fff;
+bg-gray: #D8D8D8;
+text-lightgray: #828282;
+text-darkgray: #4A4A4A;
+text-lightblue: #6493DD;
+*/
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+html, body {
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    color: #4A4A4A;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* mobile-nav styling */
+.mobile-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    padding: 0 15px;
+}
+
+.mobile-nav img {
+    width: 30px;
+    height: 30px;
+}
+
+/* desktop-nav styling */
+.desktop-nav {
+    display: none;
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    height: 32px;
+}
+
+.brand-logo img {
+    margin-right: 3px;
+}
+
+.brand-logo #brand-name-initial {
+    font-weight: 700;
+    color: #4A4A4A;
+}
+
+.brand-logo span {
+    color: #828282;
+    font-size: 1.25rem;
+}
+
+.desktop-nav .nav-items span {
+    margin-right: 16px;
+}
+
+.desktop-nav .nav-items span:last-child {
+    margin-right: 0;
+}
+
+/* main section styling */
+.main {
+    background-color: #D8D8D8;
+}
+
+.main img {
+    width: 100%;
+}
+
+.main-body {
+    padding: 0 16px;
+}
+
+.main-body h1 {
+    margin: 32px auto;
+    font-weight: 900;
+    font-size: 2em;
+    letter-spacing: 1px;
+}
+
+.main-body h3 {
+    margin: 0 auto 24px;
+    letter-spacing: 1px;
+}
+
+.main-body button {
+    color: white;
+    font-size: 1.2em;
+    font-weight: 700;
+    width: 100%;
+    margin-bottom: 32px;
+    border: 0;
+    padding: 0.5em 0;
+    background-color: #9b9b9b;
+}
+
+/* information section styling */
+.information {
+    padding: 16px 16px 32px 16px;
+}
+
+.information-main {
+    display: none;
+}
+
+.information-card {
+    margin-bottom: 64px;
+}
+
+.information-text {
+    color: #828282;
+}
+
+.information-card:last-child {
+    margin-bottom: 0;
+}
+
+.information-card img {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.information-card img.desktop {
+    display: none;
+}
+
+.information-card-body {
+    padding: 0 16px;
+}
+
+.information-card-title {
+    font-weight: 700;
+    font-size: 1.2em;
+    margin: 0 auto 10px;
+}
+
+.information-card-details {
+    margin: 0 auto 10px;
+}
+
+.information-card-read-more {
+    margin: 0;
+    color: #6493DD;
+}
+
+/* courses section styling */
+.courses {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 16px;
+}
+
+.courses h2 {
+    font-size: 2em;
+    font-weight: 900;
+    margin: 0 auto 16px;
+}
+
+.course-simple-item {
+    background-color: #d8d8d8;
+    margin-bottom: 8px;
+    padding: 16px;
+}
+
+.course-simple-item:last-child {
+    margin-bottom: 0;
+}
+
+.courses-cards-container {
+    display: none;
+}
+
+/* exhibition section styling */
+.exhibition-title {
+    font-weight: 900;
+    font-size: 2em;
+    text-align: center;
+    margin: 32px auto 16px;
+}
+
+.exhibition video {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.exhibition-cards-container {
+    display: none;
+}
+
+.exhibition-video-text {
+    display: none;
+}
+
+/* footer styling */
+footer {
+    margin: 16px;
+}
+
+.footer-links {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    /* mobile-nav styling */
+    .mobile-nav {
+        display: none;
+    }
+
+    /* main section styling */
+    .main {
+        padding: 32px 96px 32px 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .main-body {
+        padding: 0;
+    }
+    .main-image {
+        margin-right: 36px;
+    }
+    .main img {
+        width: 55vw;
+    }
+    .main-body h1 {
+        font-size: 2.5em;
+        letter-spacing: 0;
+    }
+    .main-body h3 {
+        font-size: 1.5em;
+        margin-bottom: 2em;
+        letter-spacing: 0;
+    }
+    .main-body button {
+        background-color: #4a4a4a;
+        padding: 1em 0;
+    }
+
+    /* information section styling */
+    .information {
+        display: flex;
+        padding-left: 24px;
+        padding-bottom: 72px;
+    }
+    .information-main {
+        display: block;
+        max-width: 60%;
+    }
+    .information-main-body{
+        max-width: 90%;
+    }
+    .information-main img {
+        width: 55vw;
+        margin-top: 32px;
+        margin-right: 24px;
+    }
+    .information-main-body h2 {
+        margin: 32px auto 24px;
+        font-size: 2em;
+        font-weight: 900;
+    }
+    .information-card-container {
+        width: 40%;
+        margin-top: 32px;
+    }
+    .information-card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0;
+    }
+    .information-card:last-child {
+        background-color: #d8d8d8;
+    }
+    .information-card img.mobile {
+        display: none;
+    }
+    .information-card img.desktop {
+        margin: 16px;
+        display: flex;
+        width: 35%;
+        height: auto;
+    }
+    #desktop-first {
+        margin-top: 0;
+    }
+    .information-card-body {
+        width: 65%;
+    }
+
+    /* courses section styling */
+    .courses-simple-container {
+        display: none;
+    }
+    .courses {
+        background-color: #d8d8d8;
+        padding: 0 72px 32px;
+    }
+    .courses h2 {
+        margin: 32px auto;
+    }
+    .courses-cards-container {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+    .courses-card {
+        max-width: 30%;
+        background-color: white;
+        margin-bottom: 32px;
+    }
+    .courses-card img {
+        width: 100%;
+    }
+    .courses-card-body {
+        padding: 16px 16px 32px 16px;
+    }
+    .courses-card-title {
+        margin: 0;
+    }
+    .courses-card-body p {
+        font-weight: 300;
+        color: #828282;
+    }
+    .courses-card-body p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* exhibition section styling */
+    .exhibition-title {
+        margin: 32px auto;
+    }
+    .exhibition-content {
+        display: inline-flex;
+    }
+    .exhibition-video {
+        width: 60%;
+        margin: 0 24px 24px;
+    }
+    .exhibition-video-text {
+        display: block;
+    }
+    .exhibition-video h3 {
+        margin-top: 0;
+    }
+    .exhibition-video p {
+        color: #828282;
+    }
+    .exhibition-cards-container {
+        width: 40%;
+        display: block;
+    }
+    .exhibition-card {
+        display: flex;
+        align-items: center;
+    }
+    .exhibition-card:first-child {
+        background-color: #d8d8d8;
+    }
+    .exhibition-card img {
+        width: 35%;
+        margin: 16px;
+    }
+    .exhibition-card h3 {
+        margin-bottom: 0.5em;
+    }
+    .exhibition-card p {
+        margin-top: 0;
+        color: #828282;
+        line-height: 1.5;
+    }
+
+    /* footer styling */
+    footer {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 72px;
+        color: #828282;
+    }
+    .footer-links {
+        display: block;
+    }
+    .footer-item:first-child {
+        margin-right: 16px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+    .information {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .information-card-container {
+        width: 100%;
+    }
+}
