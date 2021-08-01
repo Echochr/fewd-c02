@@ -37,8 +37,53 @@ betterWords.forEach(word => {
   }
 })
 
+// step 6.3: log the number of times each overused word appears
+const overusedWordCount = () => {
+  overusedWords.forEach(overusedWord => {
+    const num = betterWords.reduce((count, word) => {
+      if (word.toLowerCase() === overusedWord) {
+        return ++count
+      } else return count
+    }, 0)
+    console.log(`"${overusedWord}" count is ${num}`)
+  })
+}
+
+// step 8.1
+const editedStory = []
+const removeOverusedWords = () => {
+  for (const word of betterWords) {
+    let isOverusedWord = overusedWords.includes(word)
+    if (!isOverusedWord) editedStory.push(word)
+  }
+}
+removeOverusedWords()
+
+// step 8.2
+const findMostFrequentWord = () => {
+  let mostFrequent = 1
+  let count = 0
+  let word
+  for (let i=0; i<editedStory.length; i++) {
+    for (let j=i; j<editedStory.length; j++) {
+      if (editedStory[i] === editedStory[j]) count++;
+      if (mostFrequent < count) {
+        mostFrequent = count
+        word = editedStory[i]
+      }
+    }
+    count = 0
+  }
+  console.log(`The most frequent word is "${word}", it appeared ${mostFrequent} times."`)
+}
+
 console.log(`Better word count is ${betterWords.length}`)
 console.log(`Sentence count is ${sentenceCounter}`)
 console.log(`Overused word count is ${numOverused}`)
-
-console.log(betterWords.join(' '))
+overusedWordCount()
+console.log(`========================================`)
+console.log(`Edited story word count is ${editedStory.length}`)
+findMostFrequentWord()
+console.log(`========================================`)
+// console.log(betterWords.join(' '))
+console.log(editedStory.join(' '))
