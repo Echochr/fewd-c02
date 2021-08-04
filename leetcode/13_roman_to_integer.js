@@ -32,13 +32,12 @@ const romanToInt = s => {
     }
     let newArrSum = 0
     let specialArrSum = 0
-    for (let i=0; i<newArr.length; i++) {
-        newArrSum += romanValue[newArr[i]]
-    }
-    for (let i=0; i<specialArr.length; i++) {
+    newArr.forEach(char => {
+        return newArrSum += romanValue[char]
+    })
+    for (let i=0; i<specialArr.length; i+=2) {
         const specialValue = specialArr[i]+specialArr[i+1]
         specialArrSum += romanValue[specialValue]
-        i += 1
     }
     // console.log(sArray)
     // console.log(newArr)
