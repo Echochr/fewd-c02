@@ -22,13 +22,8 @@ class Field {
         } else return true
     }
 
-    generateFieldRandomXCoord() {
-        const num = Math.floor(Math.random() * Math.floor(this.parsedWidth))
-        return num
-    }
-
-    generateFieldRandomYCoord() {
-        const num = Math.floor(Math.random() * Math.floor(this.parsedHeight))
+    generateFieldRandomCoord(val) {
+        const num = Math.floor(Math.random() * Math.floor(val))
         return num
     }
 
@@ -58,11 +53,11 @@ class Field {
     }
 
     generateStartAndHatLocation() {
-        let xHat = this.generateFieldRandomXCoord()
-        let yHat = this.generateFieldRandomYCoord()
+        let xHat = this.generateFieldRandomCoord(this.parsedWidth)
+        let yHat = this.generateFieldRandomCoord(this.parsedHeight)
         if (xHat == 0 && yHat == 0) {
-            xHat = this.generateFieldRandomXCoord()
-            yHat = this.generateFieldRandomYCoord()
+            xHat = this.generateFieldRandomCoord(this.parsedWidth)
+            yHat = this.generateFieldRandomCoord(this.parsedHeight)
         }
         
         this.field[yHat][xHat] = hat
