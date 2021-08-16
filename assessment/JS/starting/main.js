@@ -12,21 +12,23 @@ const percentage = prompt('percentage? (0-100) ')
 class Field {
     constructor(field) {
         this.field = field
+        this.parsedHeight = parseInt(height)
+        this.parsedWidth = parseInt(width)
     }
 
     checkValidInput() {
-        if (percentage < 0 || percentage > 100) {
-            console.log("Invalid percentage input, please try again")
+        if (percentage < 0 || percentage > 100 || typeof this.parsedHeight !== 'number' || typeof this.parsedWidth !== 'number') {
+            console.log("Invalid height/width/percentage input, please try again")
         } else return true
     }
 
     generateFieldRandomXCoord() {
-        const num = Math.floor(Math.random() * width)
+        const num = Math.floor(Math.random() * Math.floor(this.parsedWidth))
         return num
     }
 
     generateFieldRandomYCoord() {
-        const num = Math.floor(Math.random() * height)
+        const num = Math.floor(Math.random() * Math.floor(this.parsedHeight))
         return num
     }
 
@@ -65,6 +67,13 @@ class Field {
         
         this.field[yHat][xHat] = hat
         this.field[0][0] = pathCharacter
+    }
+
+    printType() {
+        console.log(height)
+        console.log(typeof height)
+        console.log(width)
+        console.log(typeof width)
     }
 
     printField() {
@@ -134,6 +143,7 @@ class Field {
 
 const hatGame = new Field
 if (hatGame.checkValidInput()) {
+    // hatGame.printType()
     hatGame.generateGameField()
     hatGame.generateStartAndHatLocation()
     hatGame.playGame()
