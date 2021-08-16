@@ -25,8 +25,8 @@ class Field {
     }
 
     generateRandomCoord(height, width) {
-        const numY = Math.floor(Math.random() * Math.floor(height))
-        const numX = Math.floor(Math.random() * Math.floor(width))
+        const numY = Math.floor(Math.random() * height)
+        const numX = Math.floor(Math.random() * width)
         this.randomY = numY
         this.randomX = numX
     }
