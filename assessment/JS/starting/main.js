@@ -14,6 +14,8 @@ class Field {
         this.field = field
         this.parsedHeight = parseInt(height)
         this.parsedWidth = parseInt(width)
+        this.randomY = 0
+        this.randomX = 0
     }
 
     checkValidInput() {
@@ -22,9 +24,11 @@ class Field {
         } else return true
     }
 
-    generateFieldRandomCoord(val) {
-        const num = Math.floor(Math.random() * Math.floor(val))
-        return num
+    generateRandomCoord(height, width) {
+        const numY = Math.floor(Math.random() * Math.floor(height))
+        const numX = Math.floor(Math.random() * Math.floor(width))
+        this.randomY = numY
+        this.randomX = numX
     }
 
     generateGameField() {
@@ -35,33 +39,30 @@ class Field {
             for (let j=0; j<width; j++) {
                 let isHole
                 let randomNum = Math.floor(Math.random() * 100)
-                if (randomNum >= 0 && randomNum <= percentage) {
-                    isHole = true
-                } else {
-                    isHole = false
-                }
+                if (randomNum >= 0 && randomNum <= percentage) isHole = true 
+                else isHole = false
 
-                if (isHole) {
-                    fieldRow.push(hole)
-                } else {
-                    fieldRow.push(fieldCharacter)
-                }
+                isHole? fieldRow.push(hole):fieldRow.push(fieldCharacter)
             }
             gameField.push(fieldRow)
         }
         this.field = gameField
     }
 
-    generateStartAndHatLocation() {
-        let xHat = this.generateFieldRandomCoord(this.parsedWidth)
-        let yHat = this.generateFieldRandomCoord(this.parsedHeight)
-        if (xHat == 0 && yHat == 0) {
-            xHat = this.generateFieldRandomCoord(this.parsedWidth)
-            yHat = this.generateFieldRandomCoord(this.parsedHeight)
-        }
-        
-        this.field[yHat][xHat] = hat
+    generateStartLocation() {
         this.field[0][0] = pathCharacter
+    }
+
+    generateHatLocation() {
+        this.generateRandomCoord(this.parsedHeight, this.parsedWidth)
+        let yHat = this.randomY
+        let xHat = this.randomX
+        if (yHat == 0 && xHat == 0) {
+            this.generateRandomCoord(this.parsedHeight, this.parsedWidth)
+            yHat = this.randomY
+            xHat = this.randomX
+        }
+        this.field[yHat][xHat] = hat
     }
 
     printType() {
@@ -78,10 +79,10 @@ class Field {
     }
 
     printInstructions() {
-        console.log("====================")
+        console.log("=========================")
         console.log("Instructions: Move up - W, Move down - S, Move left - A, Move right - D")
         console.log("Restart game - RE")
-        console.log("====================")
+        console.log("=========================")
     }
 
     playGame() {
@@ -89,6 +90,9 @@ class Field {
         let xCoord = 0
         let isOutOfBound = false
         let isGameOver = false
+        this.generateGameField()
+        this.generateHatLocation()
+        this.generateStartLocation()
         this.printInstructions()
         this.printField()
 
@@ -117,7 +121,7 @@ class Field {
                 break
             }
             if (this.field[yCoord][xCoord] === hole) {
-                console.log("OH NO! You fell into the hole! Game over!")
+                console.log("OHHH NOOO! You fell into the hole! Game over!")
                 isGameOver = true
                 break
             }
@@ -137,9 +141,4 @@ class Field {
 }
 
 const hatGame = new Field
-if (hatGame.checkValidInput()) {
-    // hatGame.printType()
-    hatGame.generateGameField()
-    hatGame.generateStartAndHatLocation()
-    hatGame.playGame()
-}
+if (hatGame.checkValidInput()) hatGame.playGame()
