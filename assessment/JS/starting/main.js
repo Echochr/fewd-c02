@@ -37,12 +37,9 @@ class Field {
         for (let i=0; i<height; i++) {
             const fieldRow = []
             for (let j=0; j<width; j++) {
-                let isHole
                 let randomNum = Math.floor(Math.random() * 100)
-                if (randomNum >= 0 && randomNum <= percentage) isHole = true 
-                else isHole = false
-
-                isHole? fieldRow.push(hole):fieldRow.push(fieldCharacter)
+                let isHole = randomNum >= 0 && randomNum <= percentage
+                fieldRow.push( isHole? hole:fieldCharacter )
             }
             gameField.push(fieldRow)
         }
@@ -55,21 +52,11 @@ class Field {
 
     generateHatLocation() {
         this.generateRandomCoord(this.parsedHeight, this.parsedWidth)
-        let yHat = this.randomY
-        let xHat = this.randomX
-        if (yHat == 0 && xHat == 0) {
+        let validHatLocation = this.randomY !== 0 && this.randomX !== 0
+        if (!validHatLocation) {
             this.generateRandomCoord(this.parsedHeight, this.parsedWidth)
-            yHat = this.randomY
-            xHat = this.randomX
         }
-        this.field[yHat][xHat] = hat
-    }
-
-    printType() {
-        console.log(height)
-        console.log(typeof height)
-        console.log(width)
-        console.log(typeof width)
+        this.field[this.randomY][this.randomX] = hat
     }
 
     printField() {
@@ -79,24 +66,24 @@ class Field {
     }
 
     printInstructions() {
-        console.log("=========================")
+        console.log("==============================")
         console.log("Instructions: Move up - W, Move down - S, Move left - A, Move right - D")
         console.log("Restart game - RE")
-        console.log("=========================")
+        console.log("==============================")
     }
 
     playGame() {
-        let yCoord = 0
-        let xCoord = 0
-        let isOutOfBound = false
-        let isGameOver = false
         this.generateGameField()
         this.generateHatLocation()
         this.generateStartLocation()
         this.printInstructions()
         this.printField()
+        let yCoord = 0
+        let xCoord = 0
+        let isOutOfBound = false
+        let isGameOver = this.field[yCoord][xCoord] === hat
 
-        while (this.field[yCoord][xCoord] !== hat) {
+        while (!isGameOver) {
             let nextMove = prompt('next move? ')
             switch (nextMove.toLowerCase()) {
                 case 'w':
@@ -119,18 +106,15 @@ class Field {
                 isOutOfBound = true
                 isGameOver = true
                 break
-            }
-            if (this.field[yCoord][xCoord] === hole) {
+            } else if (this.field[yCoord][xCoord] === hole) {
                 console.log("OHHH NOOO! You fell into the hole! Game over!")
                 isGameOver = true
                 break
-            }
-            if (this.field[yCoord][xCoord] === hat) {
+            } else if (this.field[yCoord][xCoord] === hat) {
                 console.log("Congratulations! You found the hat!")
                 isGameOver = true
                 break
-            }
-            if (!isOutOfBound) {
+            } else if (!isOutOfBound) {
                 this.field[yCoord][xCoord] = pathCharacter
             }
             console.clear()
